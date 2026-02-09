@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Secure Bank | Login</title>
+
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE -->
+        <div class="left">
+
+            <!-- TEXT CONTENT -->
+            <div class="left-content">
+                <h1>Welcome to Secure Bank</h1>
+                <p class="subtitle">Your Trusted Online Banking Solution</p>
+
+                <ul>
+                    <li>✔ Manage accounts easily & securely</li>
+                    <li>✔ Fast and safe money transfers</li>
+                    <li>✔ 24/7 access to your finances</li>
+                </ul>
+            </div>
+
+            <!-- IMAGE -->
+            <img src="bankingImg.png" class="bank-img" alt="Bank Illustration">
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+        <div class="right">
+
+            <div class="login-card">
+                <h2>Login to Your Account</h2>
+
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="Email"
+                    required
+                    autocomplete="email"
+                >
+
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Password"
+                    required
+                    autocomplete="current-password"
+                    onkeydown="if(event.key==='Enter') login()"
+                >
+
+                <button onclick="login()">Login</button>
+
+                <p class="register">
+                    New user? <a href="register.html">Register here</a>
+                </p>
+
+                <p id="error" class="error"></p>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="api.js"></script>
+    <script src="auth.js"></script>
+
+</body>
+</html>

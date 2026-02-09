@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Bank | Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <!-- THREE SECTION LAYOUT -->
+    <div class="dashboard-container">
+        
+        <!-- ==================== LEFT SECTION (SIDEBAR) ==================== -->
+        <div class="left-section">
+            <!-- Logo and Bank Name -->
+            <div class="logo-section">
+                <div class="logo">🏦</div>
+                <h2>Secure Bank</h2>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-menu">
+                <div class="nav-item active" onclick="showDefaultAnimation()">
+                    <span class="nav-icon">🏠</span>
+                    <span>Home</span>
+                </div>
+
+                <div class="nav-item" onclick="toggleProfile()">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </div>
+
+                <!-- Profile Details (Hidden by default) -->
+                <div id="profileDetails" class="profile-details">
+                    <div class="profile-item">
+                        <strong>User ID:</strong>
+                        <span id="profileUserId">-</span>
+                    </div>
+                    <div class="profile-item">
+                        <strong>Account ID:</strong>
+                        <span id="profileAccountId">-</span>
+                    </div>
+                    <div class="profile-item">
+                        <strong>Email:</strong>
+                        <span id="profileEmail">-</span>
+                    </div>
+                    <div class="profile-item">
+                        <strong>Name:</strong>
+                        <span id="profileName">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logout Button at Bottom -->
+            <div class="logout-section">
+                <button class="logout-btn" onclick="logout()">
+                    <span>🚪</span> Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MIDDLE SECTION ==================== -->
+        <div class="middle-section">
+            <!-- Welcome Text -->
+            <div class="welcome-header">
+                <h1>Welcome back,</h1>
+                <h2 id="welcomeText">User</h2>
+            </div>
+
+            <!-- View Balance -->
+            <div class="balance-card" onclick="viewBalance()">
+                <div class="balance-info">
+                    <span class="balance-label">Current Balance</span>
+                    <div class="balance-display">
+                        <span class="rupee-symbol">₹</span>
+                        <span id="balanceAmount">...</span>
+                    </div>
+                </div>
+                <div class="balance-icon">👁️</div>
+            </div>
+
+            <!-- Three Action Buttons -->
+            <div class="action-buttons">
+                <div class="action-btn deposit-btn" onclick="showDepositForm()">
+                    <div class="btn-icon">💰</div>
+                    <span>Deposit</span>
+                </div>
+
+                <div class="action-btn withdraw-btn" onclick="showWithdrawForm()">
+                    <div class="btn-icon">💳</div>
+                    <span>Withdraw</span>
+                </div>
+
+                <div class="action-btn transfer-btn" onclick="showTransferForm()">
+                    <div class="btn-icon">🔄</div>
+                    <span>Transfer</span>
+                </div>
+            </div>
+
+            <!-- Transaction History Button -->
+            <div class="history-card" onclick="viewTransactionHistory()">
+                <div class="history-info">
+                    <h3>📜 Transaction History</h3>
+                    <p>View all your transactions</p>
+                </div>
+                <div class="arrow">→</div>
+            </div>
+
+            <!-- Transaction History Container (Hidden) -->
+            <div id="historyContainer" class="history-container">
+                <div class="history-header">
+                    <h3>Transaction History</h3>
+                    <button onclick="closeHistory()">✕</button>
+                </div>
+                <div id="historyContent"></div>
+            </div>
+        </div>
+
+        <!-- ==================== RIGHT SECTION ==================== -->
+        <div class="right-section" id="rightSection">
+            <!-- Default: Animations and Information -->
+            <!-- This will be dynamically filled by JavaScript -->
+        </div>
+    </div>
+
+    <!-- ==================== PASSWORD VERIFICATION MODAL ==================== -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Verify Password</h3>
+            <input 
+                type="password" 
+                id="passwordInput" 
+                placeholder="Enter your password"
+                onkeydown="if(event.key==='Enter') verifyPasswordModal()"
+            >
+            <p id="passwordError" class="error-text"></p>
+            <div class="modal-buttons">
+                <button class="btn-primary" onclick="verifyPasswordModal()">Verify</button>
+                <button class="btn-secondary" onclick="closePasswordModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

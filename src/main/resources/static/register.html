@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Secure Bank | Register</title>
+    <link rel="stylesheet" href="register.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- LEFT SIDE -->
+        <div class="left register-left">
+            <div class="left-content">
+                <h1>Create Your Secure Account</h1>
+                <p class="subtitle">Join Secure Bank & manage your finances safely</p>
+
+                <ul>
+                    <li>✔ Safe & encrypted banking</li>
+                    <li>✔ Instant money transfers</li>
+                    <li>✔ 24/7 account access</li>
+                    <li>✔ Complete transaction history</li>
+                </ul>
+            </div>
+
+            <div class="bank-img-container">
+                <div class="floating-icon">🔒</div>
+                <div class="floating-icon" style="animation-delay: 0.5s;">💰</div>
+                <div class="floating-icon" style="animation-delay: 1s;">✨</div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right">
+            <div class="register-card">
+                <h2>Create Account</h2>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                    required
+                    autocomplete="name"
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                    autocomplete="email"
+                >
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password (min 6 characters)"
+                    required
+                    autocomplete="new-password"
+                    onkeydown="if(event.key==='Enter') register()"
+                >
+
+                <button onclick="register()">Sign Up</button>
+
+                <p class="register">
+                    Already have an account?
+                    <a href="index.html">Login here</a>
+                </p>
+
+                <p id="error" class="error"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
