@@ -5,18 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    
-    private static final String URL = "jdbc:mysql://localhost:3306/banking_app"
-            + "?useSSL=false"
-            + "&allowPublicKeyRetrieval=true"
-            + "&serverTimezone=UTC";
 
-    private static final String USER = "root";
-    private static final String PASSWORD = "#RLXS@13";
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASS");
 
     static {
         try {
-            // Load MySQL driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("MySQL Driver loaded successfully");
         } catch (ClassNotFoundException e) {
